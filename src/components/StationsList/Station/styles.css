@@ -1,0 +1,18 @@
+.station-detail-container img {
+  border-radius: 50%;
+  border: 2px solid #9fa8bb;
+  margin: 10px;
+}
+
+.station-detail-container svg {
+  color: #9fa8bb;
+  font-size: 30px;
+}
+.station-detail-container svg:hover {
+  color: #edae60;
+  cursor: pointer;
+}
+.stationsList-Item:hover {
+  background-color: #22232b;
+  cursor: pointer;
+}

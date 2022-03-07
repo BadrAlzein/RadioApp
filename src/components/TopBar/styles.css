@@ -1,0 +1,12 @@
+.topBar-icons {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 30px;
+}
+.topBar-icons:hover {
+  color: #383945;
+}
+.topBar-container p {
+  color: white;
+  font-size: 18px;
+}
