@@ -9,7 +9,6 @@ const Stations = (stations = [], action) => {
       return stations;
   }
 };
-
 export default Stations;
 
 /**
@@ -17,14 +16,12 @@ export default Stations;
  * https://dummyimage.com/400x400/3d43ff/ffffff&text=RadioOne
  */
 const formatStation = (stations) => {
-  let new_stations = [];
-  stations.radios.map((station) => {
+  let new_stations = stations.radios.map((station) => {
     let new_station = {
       ...station,
       image: station.image.replace("RadioOne", station.name)
     };
-    new_stations = [...new_stations, new_station];
-    return station;
+    return new_station;
   });
   return { ...stations, radios: new_stations };
 };

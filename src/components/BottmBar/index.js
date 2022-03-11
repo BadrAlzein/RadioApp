@@ -1,16 +1,18 @@
 import { useSelector } from "react-redux";
 import "./styles.css";
+
 export const Index = () => {
-  const currentStation = useSelector((state) => state.currentStation);
+  const playList = useSelector((state) => state.playList);
   return (
     <>
-      {currentStation.name && (
-        <div className="BottomBar">
+      {playList.currentStationIndex !== -1 &&
+        <div className="BottomBar"  >
           <span className="BottomBar-header">CURRENTLY PLAYING</span>
           <br />
-          <span className="stationName">{currentStation.name}</span>
+          <span className="stationName">{playList.playingHistory[playList.currentStationIndex].name}</span>
         </div>
-      )}
+      }
+
     </>
   );
 };

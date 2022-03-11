@@ -4,46 +4,25 @@ import Collapse from "@mui/material/Collapse";
 import { Grid } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import { useDispatch } from "react-redux";
-import * as Connection_CONST from "./../../../constants";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import * as playingList from "./../../../actions/playingList"
 import "./styles.css";
-export default (porps) => {
-  const { station, index, selectedIndex, setSelectedIndex } = porps;
+export const Index = ({ index, station, next, previous }) => {
   const dispatch = useDispatch();
-
-  /** get the current station
-   * Begründung für  ->  && currentStationName
-   *  the case where the TURN OFF Button is clicked in this case last opend station
-   */
-  const undefinedCurrenStation =
-    useSelector((state) => state.currentStation).name === undefined;
-
+  const playList = useSelector((state) => state.playList);
+  const currentStation = playList.playingHistory[playList.currentStationIndex];
   // handle opening and closing menu as well as starting the radio
   const handleClick = () => {
-    //toggole between the stations
-    if (selectedIndex === index) {
-      setSelectedIndex("");
-    } else {
-      setSelectedIndex(index);
-    }
     //if the user closed the radio the redux stored current_radio will be cleared
-    dispatch({
-      type: Connection_CONST.START,
-      payload: index === selectedIndex ? {} : station
-    });
+    station === currentStation ?
+      playingList.close(dispatch) :
+      playingList.add(station, dispatch);
   };
-  //on load
-  useEffect(() => {
-    //if the user tuned off the radio reset the selected Index
-    undefinedCurrenStation && setSelectedIndex("");
-  });
 
   return (
     <>
       <Collapse
-        in={index === selectedIndex && !undefinedCurrenStation}
+        in={station === currentStation}
         timeout="auto"
         unmountOnExit
       >
@@ -56,9 +35,9 @@ export default (porps) => {
           >
             <Grid item>
               <RemoveCircleOutlineIcon
-                onClick={() => {
-                  alert("Not yet implemented");
-                }}
+                onClick={
+                  () => { previous(index) }
+                }
               />
             </Grid>
             <Grid item>
@@ -73,7 +52,7 @@ export default (porps) => {
             <Grid item>
               <AddCircleOutlineIcon
                 onClick={() => {
-                  alert("Not yet implemented");
+                  next(index)
                 }}
               />
             </Grid>
@@ -92,3 +71,5 @@ export default (porps) => {
     </>
   );
 };
+
+export default Index;

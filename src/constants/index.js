@@ -4,4 +4,9 @@ export const STATIONS_API_URL =
 
 //API operations
 export const GET = "GET"; //TO get stations
-export const START = "START"; //to start a station
+
+//Radio Operations
+export const ADD = "ADD"; //to ADD a station
+export const BACK = "BACK"; //to the last station
+export const NEXT = "NEXT"; //to the NEXT station
+export const CLOSE = "CLOSE"; //to CLOSE current station
