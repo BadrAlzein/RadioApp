@@ -1,3 +1,3 @@
 # Radio APP
 
-## this APP is created with React JS 
+this APP is created with React JS 
