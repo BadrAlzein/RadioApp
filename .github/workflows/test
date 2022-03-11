@@ -1,0 +1,22 @@
+name: Test workflow
+
+on:
+  pull_request:
+    branches:
+      - master
+      - staging
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Run tests
+        run: npm run test
