@@ -5,7 +5,7 @@ import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
 import { useDispatch } from "react-redux";
 import * as playingListAction from "./../../actions/playingList";
 export const Index = (props) => {
-  const { radioStatus, setRadioStatus } = props;
+  const {  setRadioStatus } = props;
   const dispatch = useDispatch();
 
   const closeRadio = () => {
