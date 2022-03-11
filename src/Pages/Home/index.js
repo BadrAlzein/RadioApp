@@ -41,7 +41,7 @@ export const Home = () => {
                   justifyContent: "center"
                 }}
               >
-                <TopBar radioStatus={radioStatus} setRadioStatus={setRadioStatus} />
+                <TopBar setRadioStatus={setRadioStatus} />
               </Box>
 
               <Box
