@@ -11,7 +11,7 @@ const playList = (playList = { playingHistory: [], currentStationIndex: -1 }, ac
     case CONSTS.BACK:
       if (playList.currentStationIndex !== -1) {
         return { ...playList, currentStationIndex: playList.currentStationIndex - 1 };
-      }
+      } return { ...playList, currentStationIndex: - 1 };
     default:
       return playList;
   }
