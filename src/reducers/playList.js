@@ -9,9 +9,9 @@ const playList = (playList = { playingHistory: [], currentStationIndex: -1 }, ac
     case CONSTS.CLOSE:
       return { playingHistory: [], currentStationIndex: -1 };
     case CONSTS.BACK:
-      if (playList.currentStationIndex > -1)
+      if (playList.currentStationIndex !== -1) {
         return { ...playList, currentStationIndex: playList.currentStationIndex - 1 };
-      break;
+      }
     default:
       return playList;
   }

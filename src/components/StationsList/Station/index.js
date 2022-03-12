@@ -11,6 +11,7 @@ export const Index = ({ index, station, next, previous }) => {
   const dispatch = useDispatch();
   const playList = useSelector((state) => state.playList);
   const currentStation = playList.playingHistory[playList.currentStationIndex];
+  const theme = useSelector(state => state.theme);
   // handle opening and closing menu as well as starting the radio
   const handleClick = () => {
     //if the user closed the radio the redux stored current_radio will be cleared
@@ -20,13 +21,14 @@ export const Index = ({ index, station, next, previous }) => {
   };
 
   return (
-    <>
+    <div style={{ color: theme.palette.text.radioStations }}>
       <Collapse
         in={station === currentStation}
         timeout="auto"
         unmountOnExit
+        className="stationCollapse"
       >
-        <div className="station-detail-container">
+        <div className={theme.type === "DARK" ? "station-detail-container-dark" : "station-detail-container-light"}>
           <Grid
             container
             direction="row"
@@ -60,7 +62,7 @@ export const Index = ({ index, station, next, previous }) => {
         </div>
       </Collapse>
       <ListItem
-        className="stationsList-Item"
+        className={theme.type === "DARK" ? "stationsList-Item-dark" : "stationsList-Item-light"}
         onClick={handleClick}
         secondaryAction={
           <ListItemText primary={<h3>{station.frequency}</h3>} />
@@ -68,7 +70,7 @@ export const Index = ({ index, station, next, previous }) => {
       >
         <ListItemText primary={station.name} />
       </ListItem>
-    </>
+    </div>
   );
 };
 

@@ -1,18 +1,43 @@
-.station-detail-container img {
+.station-detail-container-dark img {
+  border: 2px solid hsl(221, 17%, 68%);
+}
+
+.station-detail-container-light img {
+  border: 2px solid #443939;
+}
+
+.stationCollapse img {
   border-radius: 50%;
-  border: 2px solid #9fa8bb;
   margin: 10px;
 }
 
-.station-detail-container svg {
-  color: #9fa8bb;
+.stationCollapse svg {
   font-size: 30px;
 }
-.station-detail-container svg:hover {
-  color: #edae60;
+
+.stationCollapse svg:hover {
   cursor: pointer;
 }
-.stationsList-Item:hover {
+
+
+.station-detail-container-dark svg:hover {
+  color: #edae60;
+}
+
+.station-detail-container-light svg {
+  color: #443939;
+}
+
+.station-detail-container-light svg:hover {
+  color: #edae60;
+}
+
+.stationsList-Item-dark:hover {
   background-color: #22232b;
+  cursor: pointer;
+}
+
+.stationsList-Item-light:hover {
+  background-color: #C8BABA;
   cursor: pointer;
 }
