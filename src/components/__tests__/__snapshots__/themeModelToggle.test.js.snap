@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`themeModel Toggle tests button works correctly 1`] = `
+<p>
+  <button
+    className="themeButton darkButton"
+    onClick={[Function]}
+  >
+    🔆
+  </button>
+</p>
+`;
+
+exports[`themeModel Toggle tests match snapshot 1`] = `
+<p>
+  <button
+    className="themeButton darkButton"
+    onClick={[Function]}
+  >
+    🔆
+  </button>
+</p>
+`;
