@@ -16,12 +16,11 @@ export default Stations;
  * https://dummyimage.com/400x400/3d43ff/ffffff&text=RadioOne
  */
 const formatStation = (stations) => {
-  let new_stations = stations.radios.map((station) => {
-    let new_station = {
+ let radios = stations.radios.map((station) => {
+    return {
       ...station,
       image: station.image.replace("RadioOne", station.name)
     };
-    return new_station;
   });
-  return { ...stations, radios: new_stations };
+  return { ...stations, radios: radios };
 };
